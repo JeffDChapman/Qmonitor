@@ -268,7 +268,7 @@ namespace UVapQmonitor
             // 
             // AlertTimer
             // 
-            this.AlertTimer.Interval = 5000;
+            this.AlertTimer.Interval = 60000;
             this.AlertTimer.Tick += new System.EventHandler(this.AlertTimer_Tick);
             // 
             // Qmon
@@ -389,7 +389,8 @@ namespace UVapQmonitor
 
             if (CycleCounter == 3)
             {
-                if (Convert.ToInt32(ThisQcount) >= Convert.ToInt32(PrevQueCount) && (Convert.ToInt32(ThisQcount) > 0))
+                if (Convert.ToInt32(ThisQcount) >= Convert.ToInt32(PrevQueCount) && (Convert.ToInt32(ThisQcount) > 0)
+                    && (Convert.ToInt32(PrevQueCount) > 0))
                         { HasAlert = "** ";
                         this.AlertTimer.Enabled = true;
                         this.Text = HasAlert + ThisQcount + "  " + ThisLcount;
